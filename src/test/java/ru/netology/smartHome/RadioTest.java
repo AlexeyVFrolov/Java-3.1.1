@@ -8,33 +8,17 @@ class RadioTest {
 
     @Test
     public void shoulGetAndSetName() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("",0,0,9,0,0,100);
         String expected = "рАДио";
 
-        assertNull(radio.getName());
+        assertEquals("", radio.getName());
         radio.setName(expected);
         assertEquals(expected, radio.getName());
     }
 
     @Test
-    public void shouldSetMaxRadioStationNumber() {
-        Radio radio = new Radio(23);
-        int expected = 22;
-
-        assertEquals(expected, radio.getMaxRadioStationNumber());
-    }
-
-    @Test
-    public void shouldSetDefaultMaxRadioStationNumber() {
-        Radio radio = new Radio();
-        int expected = 9;
-
-        assertEquals(expected, radio.getMaxRadioStationNumber());
-    }
-
-    @Test
     public void shouldSetValidRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("",0,0,9,0,0,100);
         int expected = (radio.getMinRadioStationNumber() + radio.getMaxRadioStationNumber()) / 2;
 
         radio.setRadioStationNumber(expected);
@@ -43,7 +27,7 @@ class RadioTest {
 
     @Test
     public void shouldNotSetOverMaxRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("",0,0,9,0,0,100);
         int expected = radio.getMaxRadioStationNumber();
 
         radio.setRadioStationNumber(expected);
@@ -53,7 +37,7 @@ class RadioTest {
 
     @Test
     public void shouldNotSetBelowMinRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("",0,0,9,0,0,100);
         int expected = radio.getMinRadioStationNumber();
 
         radio.setRadioStationNumber(expected);
@@ -63,7 +47,7 @@ class RadioTest {
 
     @Test
     public void shouldSetValidNextRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("",0,0,9,0,0,100);
         int expected;
 
         radio.setCurrentRadioStationNumber((radio.getMinRadioStationNumber() + radio.getMaxRadioStationNumber()) / 2);
@@ -74,7 +58,7 @@ class RadioTest {
 
     @Test
     public void shouldSetMinAfterMaxNextRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("",0,0,9,0,0,100);
         int expected = radio.getMinRadioStationNumber();
 
         radio.setCurrentRadioStationNumber(radio.getMaxRadioStationNumber());
@@ -84,7 +68,7 @@ class RadioTest {
 
     @Test
     public void shouldSetValidPreviousRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("",0,0,9,0,0,100);
         int expected;
 
         radio.setCurrentRadioStationNumber((radio.getMinRadioStationNumber() + radio.getMaxRadioStationNumber()) / 2);
@@ -95,7 +79,7 @@ class RadioTest {
 
     @Test
     public void shouldSetMaxAfterMinPreviousRadioStationNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("",0,0,9,0,0,100);
         int expected = radio.getMaxRadioStationNumber();
 
         radio.setCurrentRadioStationNumber(radio.getMinRadioStationNumber());
@@ -105,7 +89,7 @@ class RadioTest {
 
     @Test
     public void shouldIncreaseValidIncreaseSoundVolumeLevel() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("",0,0,9,0,0,100);
         int expected;
 
         radio.setCurrentSoundVolumeLevel((radio.getMinSoundVolumeLevel() + radio.getMaxSoundVolumeLevel()) / 2);
@@ -116,7 +100,7 @@ class RadioTest {
 
     @Test
     public void shouldDecreaseValidIncreaseSoundVolumeLevel() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("",0,0,9,0,0,100);
         int expected;
 
         radio.setCurrentSoundVolumeLevel((radio.getMinSoundVolumeLevel() + radio.getMaxSoundVolumeLevel()) / 2);
@@ -127,7 +111,7 @@ class RadioTest {
 
     @Test
     public void shouldNotSetOverMaxSoundVolumeLevel() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("",0,0,9,0,0,100);
         int expected = radio.getMaxSoundVolumeLevel();
 
         radio.setCurrentSoundVolumeLevel(expected);
@@ -137,7 +121,7 @@ class RadioTest {
 
     @Test
     public void shouldNotSetBelowMinSoundVolumeLevel() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("",0,0,9,0,0,100);
         int expected = radio.getMinSoundVolumeLevel();
 
         radio.setCurrentSoundVolumeLevel(expected);
