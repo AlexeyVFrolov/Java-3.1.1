@@ -4,10 +4,18 @@ public class Radio {
     String name;
     private int currentRadioStationNumber;
     private int minRadioStationNumber = 0;
-    private int maxRadioStationNumber = 9;
+    private int maxRadioStationNumber;
     private int currentSoundVolumeLevel;
     private int minSoundVolumeLevel = 0;
-    private int maxSoundVolumeLevel = 10;
+    private int maxSoundVolumeLevel = 100;
+
+    public Radio () {
+        this.maxRadioStationNumber = 9;
+    }
+
+    public Radio (int radioStationQuantity) {
+        this.maxRadioStationNumber = radioStationQuantity - 1;
+    }
 
     public String getName() {
         return name;

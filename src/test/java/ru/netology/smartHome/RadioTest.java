@@ -17,6 +17,22 @@ class RadioTest {
     }
 
     @Test
+    public void shouldSetMaxRadioStationNumber() {
+        Radio radio = new Radio(23);
+        int expected = 22;
+
+        assertEquals(expected, radio.getMaxRadioStationNumber());
+    }
+
+    @Test
+    public void shouldSetDefaultMaxRadioStationNumber() {
+        Radio radio = new Radio();
+        int expected = 9;
+
+        assertEquals(expected, radio.getMaxRadioStationNumber());
+    }
+
+    @Test
     public void shouldSetValidRadioStationNumber() {
         Radio radio = new Radio();
         int expected = (radio.getMinRadioStationNumber() + radio.getMaxRadioStationNumber()) / 2;
