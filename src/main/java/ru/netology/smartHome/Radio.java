@@ -1,45 +1,20 @@
 package ru.netology.smartHome;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Radio {
-    String name;
+    private String name;
     private int currentRadioStationNumber;
-    private int minRadioStationNumber = 0;
-    private int maxRadioStationNumber = 9;
+    private int minRadioStationNumber;
+    private int maxRadioStationNumber;
     private int currentSoundVolumeLevel;
-    private int minSoundVolumeLevel = 0;
-    private int maxSoundVolumeLevel = 10;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getMinRadioStationNumber() {
-        return minRadioStationNumber;
-    }
-
-    public int getMaxRadioStationNumber() {
-        return maxRadioStationNumber;
-    }
-
-    public int getMinSoundVolumeLevel() {
-        return minSoundVolumeLevel;
-    }
-
-    public int getMaxSoundVolumeLevel() {
-        return maxSoundVolumeLevel;
-    }
-
-    public int getCurrentRadioStationNumber() {
-        return currentRadioStationNumber;
-    }
-
-    public void setCurrentRadioStationNumber(int currentRadioStationNumber) {
-        this.currentRadioStationNumber = currentRadioStationNumber;
-    }
+    private int minSoundVolumeLevel;
+    private int maxSoundVolumeLevel;
 
     public void setNextRadioStationNumber() {
         setCurrentRadioStationNumber((getCurrentRadioStationNumber() != maxRadioStationNumber) ? getCurrentRadioStationNumber() + 1 : minRadioStationNumber);
